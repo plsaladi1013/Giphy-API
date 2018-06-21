@@ -44,7 +44,7 @@ $(document).on("click",".gif", function(){
    
     
 
-$("button").on("click",function(){
+$(document).on("click","button",function(){
     console.log(this);
     var topicName = $(this).attr("topic-name");
     console.log(topicName);
