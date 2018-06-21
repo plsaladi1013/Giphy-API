@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    event.preventDefault();
+    
     
 
 var topics = ["Saab", "Volvo", "BMW"];
@@ -9,15 +9,16 @@ function renderButtons(){
     $("#display").empty();
     for(var i=0; i<topics.length; i++){
 
-        var a= $("<button>");
+        var a = $("<button>");
         a.addClass("topic");
         a.attr("topic-name",topics[i]);
         a.text(topics[i]);
         $("#display").append(a);
         }
+        
 }
-    
-$(".gif").on("click", function(){
+
+$(document).on("click",".gif", function(){
             var state = $(this).attr("data-state");
                 if(state === "still"){
                      $(this).attr("src", $(this).attr("data-animate"));
@@ -31,14 +32,16 @@ $(".gif").on("click", function(){
         });
     $("#add-topic").on("click", function(event){
         event.preventDefault();
+        console.log("clicked");
         var title = $("#new").val().trim();
         topics.push(title);
         console.log(title); 
         console.log(topics);
         renderButtons();
     });
-        
     renderButtons();
+        
+   
     
 
 $("button").on("click",function(){
